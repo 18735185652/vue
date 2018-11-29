@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<div id="app">
+    <!-- moustache 小胡子语法,表达式 可以放赋值，取值，三元表达式    还有<%=%> ${}... --> 
+    <!-- {{msg==="helloword"?1:0}} -->
+    <!-- {{msg}} -->
+    <!-- 表单元素 input checkbox textarea radio select -->
+    <!-- vue中的"指令" 只是dom上的行间属性，vue给这类属性赋予了一定的意义，来实现特殊的功能
+        所有指令都以v-开头,value属性默认情况下会被vue忽略掉 selected checked都没有意义-->
+    <!-- v-model会将msg的值赋予输入框，输入框的值改变了会影响数据  -->
+        <input type="text" v-model="msg"> 
+        <!-- Object.defineProperty ES5 -->
+
+        <!-- v-text==={{}}  防止大括号出现在页面上 -->
+        <div v-text="msg"></div>
+
+        <!-- v-once 只绑定一次，当数据再次发生变化也不会导致页面刷新 -->
+        <div v-once>{{msg}} {{msg}}</div>
+
+        <!-- v-html 把html字符串当做html渲染,一定是可以信任的html -->
+        <div v-html="p"></div>
+
+
+</div>
+<body>
+    <script src="./../node_modules/vue/dist/vue.js"></script>
+    <script>
+        //引入Vue后会败给你一个Vue的构造函数，看见构造函数就想new
+    let vm = new Vue({  //vm == viewmodel
+            el:"#app",  //挂载元素(普通元素，不能是html，body) 告诉vue能管理哪些部分 获取方式为querySelector
+            data:{     //data中的数据会被vm所代理，一个计划好的对象
+                msg:"helloword", //可以通过vm.msg取到对应的内容
+                p:"<p>hellow</p>"
+            }
+
+        }) //Object.defineProperty
+        
+    
+    
+    </script>
+</body>
+</html>

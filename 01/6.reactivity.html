@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<div id="app">
+   {{arr}}
+</div>
+<body>
+    <script src="./../node_modules/vue/dist/vue.js"></script>
+    <script>
+     
+    let vm = new Vue({  
+            el:"#app",  
+            data:{   
+                arr:[1,2,3,4,5]
+            }
+
+        }) 
+        //去改变数组的某一项是监控不到的,也不能使用改变数组长度的方法；
+        //错误 vm.arr[1] = 100;
+        //     vm.arr.length-=2
+        //变异方法：pop push shift unshift sort reverse splice 
+        //vm.arr.reverse()  //
+        
+        vm.arr = vm.arr.filter(()=>)
+
+    </script>
+</body>
+</html>
